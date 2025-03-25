@@ -8,8 +8,8 @@ public class Assignment1 {
 	public static void main(String args[]) {
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://rahulshettyacademy.com/angularpractice/");
-		driver.findElement(By.xpath("//input[@class = 'form-control ng-pristine ng-invalid ng-touched']")).sendKeys("Sravani");
-		driver.findElement(By.xpath("//input[@class = 'form-control ng-pristine ng-invalid ng-touched']")).sendKeys("sravani@gmail.com");
+		driver.findElement(By.xpath("//input[@minlength= '2']")).sendKeys("Sravani");
+		driver.findElement(By.xpath("//input[@name= 'email']")).sendKeys("sravani@gmail.com");
 		driver.findElement(By.xpath("//input[@id = 'exampleInputPassword1']")).sendKeys("sravani@457");
 		driver.findElement(By.xpath("//input[@id = 'exampleCheck1']")).click();
 		driver.findElement(By.xpath("//select[@id = 'exampleFormControlSelect1']/option[text() = 'Female']")).click();
@@ -17,6 +17,8 @@ public class Assignment1 {
 		driver.findElement(By.xpath("//input[@type= 'submit']")).click();
 		String message = driver.findElement(By.xpath("//div[@class= 'alert alert-success alert-dismissible']")).getText();
 		System.out.println(message);
+		driver.close();
+		
 		
 	}
 	
