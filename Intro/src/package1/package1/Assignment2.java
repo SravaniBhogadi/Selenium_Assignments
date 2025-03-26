@@ -18,14 +18,15 @@ public class Assignment2 {
 		WebElement ethinic_wear = driver.findElement(By.xpath("//a[@data-group='women']/following-sibling::div//a[contains(text(),'Ethnic Wear')]"));
 		ethinic_wear.click();
 		
-		WebElement select_dress = driver.findElement(By.xpath("//img[@title = 'Samhitas Women Floral Printed V-Neck Kurti']"));
+		WebElement select_dress = driver.findElement(By.xpath("//h4[text()= 'Bandhani Pure Georgette Saree']"));
 		select_dress.click();
+		
+		WebElement select_size = driver.findElement(By.xpath("(//span[@class = 'size-buttons-inventory-left'])[1]"));
+		select_size.click();
 		
 		WebElement add_to_bag = driver.findElement(By.xpath("//span[@class = 'myntraweb-sprite pdp-whiteBag sprites-whiteBag pdp-flex pdp-center']"));
 		add_to_bag.click();
 		
-		WebElement select_size = driver.findElement(By.xpath("(//span[@class = 'size-buttons-inventory-left'])[1]"));
-		select_size.click();
 		
 		WebElement open_bag = driver.findElement(By.xpath("//span[@data-reactid = '872']"));
 		open_bag.click();
