@@ -2,21 +2,19 @@ package package1;
 
 		import java.util.Arrays;
 		import java.util.List;
-		import java.util.concurrent.TimeUnit;
 		import org.openqa.selenium.By;
 		import org.openqa.selenium.WebDriver;
 		import org.openqa.selenium.WebElement;
 		import org.openqa.selenium.chrome.ChromeDriver;
-		import org.openqa.selenium.support.ui.ExpectedConditions;
-		import org.openqa.selenium.support.ui.WebDriverWait;
 
-		public class base {
+		public class Assignment3 {
 
 		public static void main(String[] args) throws InterruptedException {
 			
 			WebDriver driver=new ChromeDriver();
 			String[] itemsNeeded= {"Cucumber","Brocolli","Beetroot"};
 			driver.get("https://rahulshettyacademy.com/seleniumPractise/");
+			
 			Thread.sleep(3000);
 			addItems(driver,itemsNeeded);
 		}
@@ -39,16 +37,9 @@ package package1;
 		}
 		}
 		}
+		driver.quit();
 
-		
-
-
-
-
-		
-
-
-
+		}
 	}
 
-}
+
