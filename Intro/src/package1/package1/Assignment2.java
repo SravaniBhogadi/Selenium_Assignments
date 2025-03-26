@@ -9,31 +9,34 @@ import org.openqa.selenium.interactions.Actions;
 public class Assignment2 {
 	public static void main(String args[]) {
 		WebDriver driver = new ChromeDriver();
-		Actions action = new Actions(driver);
 		driver.get("https://www.myntra.com/");
+		Actions action = new Actions(driver);
+		
 		WebElement Women = driver.findElement(By.xpath("//a[@data-group ='women']"));
-		
-		By ethinic_wear = By.xpath("//li[@data-reactid = '195']");
-		By select_dress = By.xpath("//img[@title = 'Samhitas Women Floral Printed V-Neck Kurti']");
-		By add_to_bag = By.xpath("//span[@class = 'myntraweb-sprite pdp-whiteBag sprites-whiteBag pdp-flex pdp-center']");
-		By select_size = By.xpath("(//span[@class = 'size-buttons-inventory-left'])[1]");
-		By open_bag = By.xpath("//span[@data-reactid = '872']");
-		By place_order = By.xpath("//div[text() = 'PLACE ORDER']");
-		By price = By.xpath("//div[@class = 'itemComponents-base-price itemComponents-base-bold ']/div");
-		
 		action.moveToElement(Women).perform();
-		String x_ethinic = driver.findElement(ethinic_wear).click();
-		String x_dress = driver.findElement(select_dress).click();
-		driver.findElement(add_to_bag).click();
-		char x_size = driver.findElement(select_size);.click();
-		driver.findElement(open_bag).click();
-		int x_price = driver.findElement(place_order).click();
 		
+		WebElement ethinic_wear = driver.findElement(By.xpath("//a[@data-group='women']/following-sibling::div//a[contains(text(),'Ethnic Wear')]"));
+		ethinic_wear.click();
 		
-		System.out.println(x_ethinic.getText());
-		System.out.println(x_dress.getText());
-		System.out.println(x_size.getText());
-		System.out.println(x_price.getText());
+		WebElement select_dress = driver.findElement(By.xpath("//img[@title = 'Samhitas Women Floral Printed V-Neck Kurti']"));
+		select_dress.click();
+		
+		WebElement add_to_bag = driver.findElement(By.xpath("//span[@class = 'myntraweb-sprite pdp-whiteBag sprites-whiteBag pdp-flex pdp-center']"));
+		add_to_bag.click();
+		
+		WebElement select_size = driver.findElement(By.xpath("(//span[@class = 'size-buttons-inventory-left'])[1]"));
+		select_size.click();
+		
+		WebElement open_bag = driver.findElement(By.xpath("//span[@data-reactid = '872']"));
+		open_bag.click();
+		
+		WebElement place_order = driver.findElement(By.xpath("//div[text() = 'PLACE ORDER']"));
+		place_order.click();
+		
+		WebElement price = driver.findElement(By.xpath("//div[@class = 'itemComponents-base-price itemComponents-base-bold ']/div"));
+		System.out.println(price.getText());
+
+		driver.close();
 		
 	}
 	
