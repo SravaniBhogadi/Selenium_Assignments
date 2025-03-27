@@ -11,7 +11,7 @@ public class Assignment5 {
 	public static void main(String[] args) {
 		WebDriver driver = new ChromDriver();
 		driver.get("https://rahulshettyacademy.com/loginpagePractise/");
-		driver.manage().window.maximize()
+		driver.manage().window.maximize();
 		WebElement username = driver.findElement(By.xpath("//input[@id = 'username']"));
 		username.sendKeys("rahulshettyacademy");
 
@@ -19,7 +19,8 @@ public class Assignment5 {
 		password.sendKeys("learning");
 
 		WebElement dropdown = driver.findElement(By.cssSelector("select[class = 'form-control']"));
-		dropdown.select.ByvisibleText("Consultant");
+		Select dropdownSelect = new Select(dropdown);
+		dropdownSelect.selectByVisibleText("Consultant");
 
 		WebElement acceptTerms = driver.findElement(By.cssSelector("input[name = 'terms']"));
 		acceptTerms.click();
@@ -34,11 +35,11 @@ public class Assignment5 {
 		String[] items = {"iphone X", "Samsung Note 8", "Nokia Edge", "Blackberry"};
 
 
-		public static void select_items(WebDriver driver, String[] items){
-		for(int i = 0; i<product_name.size();i++){
-			String[] name= product_name.get(i).getText();
-			String final_name=name[i];
-			List products_needed_list = Arrays.asList(items);
+	public static void select_items(WebDriver driver, String[] items){
+	for(int i = 0; i<product_name.size();i++){
+		String[] name= product_name.get(i).getText();
+		String final_name=name[i];
+		List products_needed_list = Arrays.asList(items);
 		if(items.contains(final_name))
 		{
 			j++;
