@@ -49,7 +49,7 @@ public class Assignment5 {
 		}
 		}
 		}
-		driver.quit();
+		driver.close();
 
 		}
 			
