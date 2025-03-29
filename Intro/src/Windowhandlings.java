@@ -18,7 +18,7 @@ public class Windowhandlings {
 
 		driver.switchTOWindow()
 			
-		2. https://rahulshettyacademy.com/loginpagePractise	
+			
 		
 		3. nested frames -- print middle text
 			
