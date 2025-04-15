@@ -34,7 +34,7 @@ public class Standalone {
 		product.findElement(By.cssSelector("b")).getText().equals(product_name)).findFirst().orElse(null);
 		prod.findElement(By.xpath("//button[@class = 'btn w-10 rounded']")).click();
  		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@role = 'alert']")));
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@role = 'alert']")));
 		driver.findElement(By.xpath("//button[@routerlink = '/dashboard/cart']")).click();
@@ -47,18 +47,22 @@ public class Standalone {
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		js.executeScript("arguments[0].scrollIntoView(true);", checkoutButton);
 		wait.until(ExpectedConditions.elementToBeClickable(checkoutButton));
-		checkoutButton.click();
+		js.executeScript("arguments[0].click();", checkoutButton);
 		
-		Actions a = new Actions(driver);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//input[@placeholder = 'Select Country']")));
+		
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@placeholder='Select Country']")));
 
 		WebElement countryInput = driver.findElement(By.xpath("//input[@placeholder='Select Country']"));
+		countryInput.click();
+		Actions a = new Actions(driver);
 		a.sendKeys(countryInput, "India").perform();
 		
 		driver.findElement(By.xpath("(//span[@class = 'ng-star-inserted'])[2]")).click();
 		driver.findElement(By.xpath("//a[@class = 'btnn action__submit ng-star-inserted']")).click();
-		
+		String confirmMessage = driver.findElement(By.xpath("//h1[@class = 'hero-primary']")).getText();
+		Assert.assertTrue(confirmMessage.equalsIgnoreCase("Thankyou for the order."));
 		driver.close();
+		
 		
 		
 	}
