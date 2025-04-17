@@ -1,4 +1,5 @@
-
+REVERSE A STRING
+	
 public class RevStr{
 	public static void main(String[] args) {
 		System.out.println(revStr("chiku"));
@@ -6,11 +7,33 @@ public class RevStr{
 	}
 	
 	public static String revStr(String str) {
-		StringBuilder res = new StringBuilder();
+		String rev = "";
 		for(int i = str.length()-1; i>=0 ;i--) {
-			res.append(str.charAt(i));
+			rev += str.charAt(i);
 		}
-		return res.toString();
+		return rev;
 	}
 	
 }
+
+--------------------------
+	
+GENERATING A RANDOM NUMBER
+
+import java.util.Random;
+
+class Main {
+    public static void main(String[] args) {
+        Random random = new Random();
+        int randomInt = random.nextInt(100);
+        System.out.println(randomInt);
+    }
+}
+
+-------------------------
+
+
+
+
+
+
